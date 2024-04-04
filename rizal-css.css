@@ -1,5 +1,4 @@
 /* Default styles */
-
 html {
   scroll-behavior: smooth;
 }
@@ -50,12 +49,16 @@ nav {
 }
 
 .subnav {
-  display: none;
+  display: none; /* Hide the submenu by default */
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+}
+
+.navbar li:hover .subnav {
+  display: block; /* Show the submenu when the parent link is hovered */
 }
 
 .subnav a {
@@ -98,28 +101,27 @@ main {
 }
 
 .rizalimg img {
-  float: right;
   max-width: 100%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  align-self: center;
 }
 
 .jose {
-  overflow: hidden;
   margin-bottom: 20px;
-  display: flex;
 }
 
 .joseimg {
+  text-align: center;
   margin-right: 20px;
-  align-self: center;
-  width: 50%;
+}
+
+.joseimg img {
+  width: 25%;
 }
 
 .josetext {
-  align-self: center;
+ text-align: center;
 }
 
 .family {
@@ -224,7 +226,7 @@ main {
 
 .school img {
   margin-top: 20px;
-  width: 18pc;
+  width: 14pc;
 }
 
 .school p {
@@ -241,24 +243,28 @@ main {
   margin-right: auto;
 }
 
-.writingsgrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .writingstext {
   text-align: left;
 }
 
+/* Updated styles for the book image */
 .book {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.book p {
+  text-align: center;
+}
+
 .book img {
   margin-top: 20px;
   width: 10pc;
+  /* Remove float property */
+  margin-left: auto; /* Center the image horizontally */
+  margin-right: auto; /* Center the image horizontally */
+  display: block; /* Ensure the image appears as a block element */
 }
 
 .legacytext {
@@ -403,9 +409,10 @@ footer p {
 }
 
 /* Media Queries for responsiveness */
-
 @media only screen and (max-width: 768px) {
   header {
+    float: left;
+    margin-right: 50px;
     padding: 8px 16px; /* Adjust padding for smaller screens */
   }
 
@@ -430,9 +437,90 @@ footer p {
   .rizalimg img {
     float: none; /* Remove floating for the image */
   }
+  .joseimg img {
+    width: 80%;
+  }
+  .joseimg {
+    text-align: center;
+    margin-right: 20px;
+  }
 
   .popup .popuptext {
     width: 120px; /* Adjust popup width for smaller screens */
     margin-left: -60px; /* Adjust popup margin for smaller screens */
   }
 }
+
+@media only screen and (max-width: 480px) {
+  main {
+    padding: 40px; /* Adjust padding for smaller screens */
+  }
+
+  h1 {
+    font-size: 30px; /* Decrease font size for smaller screens */
+  }
+
+  p {
+    font-size: 16px; /* Decrease font size for smaller screens */
+  }
+
+  .introtext {
+    font-size: 24px; /* Decrease font size for smaller screens */
+  }
+}
+/* Add styles for mobile view */
+@media only screen and (max-width: 768px) {
+  nav {
+      text-align: right;
+  }
+
+  #menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 10px;
+  }
+
+  .navbar {
+      display: none;
+      text-align: left;
+      padding: 10px;
+      background-color: #c19770;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 100%;
+      z-index: 4;
+  }
+
+  .navbar.show {
+      display: block;
+  }
+
+  .navbar li {
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 5px;
+  }
+
+  .subnav {
+    display: none; /* Hide the submenu by default */
+    position: absolute;
+    background-color:#e3b183;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .navbar li:hover .subnav {
+    display: block; /* Show the submenu when the parent link is hovered */
+  }
+}  
